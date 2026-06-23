@@ -1,0 +1,491 @@
+/* ==========================================================================
+   CONFIGURAÇÕES GERAIS E CURSORES
+   ========================================================================== */
+body {
+  cursor: url("../assets/cursor/yugicursor.png"), default;
+  margin: 0;
+  padding: 0;
+  font-family: 'Press Start 2P', cursive;
+  overflow: hidden;
+}
+
+#audio-player {
+  width: 30px;
+  height: 30px;
+  transition: all 0.2s;
+  margin-right: 12px !important;
+}
+
+#audio-player:hover {
+  transform: scale(1.2);
+}
+
+.active {
+  opacity: 1;
+}
+
+.inactive {
+  opacity: 0.3;
+}
+
+button,
+button:hover,
+img:hover,
+a,
+a:hover {
+  cursor: url("../assets/cursor/yamiyugicursorGLOW.png"), auto;
+}
+
+/* ==========================================================================
+   ELEMENTOS DE FUNDO (BACKGROUND)
+   ========================================================================== */
+.bg-video {
+  position: absolute;
+  z-index: -2;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.bg-video .video {
+  height: 100vh;
+}
+
+.bg-video::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(90deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.8) 50%,
+      rgba(0, 0, 0, 1) 100%);
+}
+
+/* ==========================================================================
+   ESTRUTURA DO TABULEIRO DO JOGO (LAYOUT PRINCIPAL)
+   ========================================================================== */
+.container {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  height: 100vh;
+}
+
+.game-hidden {
+  display: none !important;
+}
+
+.container__left {
+  width: 35%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  box-sizing: border-box;
+  padding-bottom: 10px;
+}
+
+.menu_avatar {
+  width: 100%;
+  height: 50%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.menu_avatar #card-image {
+  max-width: 75%;
+  max-height: 85%;
+  object-fit: contain;
+}
+
+.container__right {
+  width: 65%;
+}
+
+.score_box {
+  background-color: #fff;
+  padding: 1rem;
+  width: auto;            
+  max-width: 90%;         
+  margin: 0 auto;         
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  gap: 15px;              
+  box-sizing: border-box;
+}
+
+.frame {
+  border: 3px solid #000;
+  border-radius: 5px;
+}
+
+.full-width-menu {
+  width: 85% !important;       
+  margin: 0 auto !important;   
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px !important;
+  padding: 10px 0 !important;
+  box-sizing: border-box;
+  display: block;              
+}
+
+#score_points {
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.card_details {
+  background-color: #fff;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 6rem;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: auto; 
+}
+
+#card-name {
+  font-size: 0.8rem;
+}
+
+#card-type {
+  font-size: 1rem;
+}
+
+/* ==========================================================================
+   ZONA DE SELEÇÃO E CARTAS
+   ========================================================================== */
+.card-box__container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0.3rem;
+  gap: 15px;
+}
+
+.card-versus__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -10px !important;
+  position: relative;
+  z-index: 5;
+}
+
+.versus-top,
+.versus-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.versus-top {
+  gap: 20px;
+  margin-bottom: -10px;
+}
+
+.versus-bottom {
+  margin-top: 1rem;
+  flex-direction: column;
+}
+
+#next-duel {
+  display: none;
+}
+
+.card-box {
+  height: 9rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.card-infield {
+  height: 9.8rem !important; 
+  width: 7.0rem !important; 
+  border: 1px solid #fff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+.card-infield img {
+  height: 100% !important;
+  width: 100% !important;
+  object-fit: contain !important;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+#millenium-icon {
+  height: 60px !important;
+  width: auto !important;
+}
+
+.card {
+  transition: all 0.2s;
+}
+
+#computer-cards .card {
+  height: 105px !important;
+  width: 80px !important;
+  object-fit: contain !important;
+  cursor: url("../assets/cursor/yamiyugicursorGLOW.png"), pointer !important;
+}
+
+#computer-cards .card:hover {
+  transform: scale(1.1) !important;
+  z-index: 10;
+}
+
+.card:hover {
+  transform: scale(1.15);
+}
+
+.card-glow {
+  animation: pulseBrilho 0.4s infinite alternate ease-in-out;
+  box-shadow: 0 0 15px #00d2d3;
+  border-color: #00d2d3 !important;
+}
+
+@keyframes pulseBrilho {
+  0% {
+    transform: scale(0.98);
+    opacity: 0.7;
+    box-shadow: 0 0 8px rgba(0, 210, 211, 0.5);
+  }
+  100% {
+    transform: scale(1.04);
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(0, 210, 211, 0.9);
+  }
+}
+
+/* ==========================================================================
+   ESTRUTURA COMPACTA DO QUIZ DO ENADE
+   ========================================================================== */
+#quiz-container {
+  display: none;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.95);
+  padding: 10px;
+  border-radius: 6px;
+  border: 2px solid #e1b12c;
+  width: 600px;
+  margin-top: 10px !important;
+  min-height: 280px; 
+}
+
+.enade-image-wrapper {
+  background: white;
+  padding: 5px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.enade-image-wrapper::-webkit-scrollbar {
+  width: 8px !important;
+}
+.enade-image-wrapper::-webkit-scrollbar-track {
+  background: #1e272e !important;
+  border-radius: 4px;
+}
+.enade-image-wrapper::-webkit-scrollbar-thumb {
+  background: #e1b12c !important;
+  border-radius: 4px;
+}
+
+#question-image {
+  width: 100%;
+  height: auto;
+  display: block;
+ 
+}
+
+#question-text {
+  color: #e1b12c;
+  font-size: 10px;
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
+  font-family: 'Press Start 2P', cursive;
+  line-height: 1.3;
+}
+ 
+#options-box {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+#options-box button {
+  min-width: 52px !important;
+  height: 44px !important;
+  padding: 0 !important;
+  font-size: 11px !important;
+  line-height: 44px;
+}
+
+.quiz-game-over {
+  position: relative !important;
+  margin: 30px auto 0 auto !important;
+  display: block !important;
+}
+
+.options-game-over {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.options-game-over button {
+  width: 180px !important;
+  min-width: 180px !important;
+}
+
+/* ==========================================================================
+   TELA DE MENU INICIAL E PAINÉIS MODAIS
+   ========================================================================== */
+#start-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent; 
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.menu-title {
+  color: #e1b12c;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  text-shadow: 3px 3px #000;
+  line-height: 1.5;
+}
+
+.menu-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 320px;
+}
+
+.menu-options button {
+  width: 100% !important;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px !important;
+  text-align: center;
+}
+
+.menu-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  max-width: 90%;
+  background: rgba(0, 0, 0, 0.95);
+  border: 3px solid #e1b12c;
+  border-radius: 8px;
+  padding: 20px;
+  z-index: 1000;
+  box-shadow: 0 0 25px rgba(225, 177, 44, 0.5);
+  box-sizing: border-box;
+}
+
+.modal-title {
+  color: #e1b12c;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.modal-content {
+  color: #fff;
+  font-size: 11px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.modal-content ul {
+  padding-left: 15px;
+  margin-top: 5px;
+}
+
+.modal-content li {
+  margin-bottom: 8px;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed #e1b12c;
+  padding: 6px 0;
+}
+
+.history-item span:last-child {
+  color: #e1b12c;
+  font-weight: bold;
+}
+
+
+
+#modal-history {
+    text-align: center; 
+}
+
+
+.btn-custom {
+    display: inline-block; 
+    width: 200px;
+    padding: 5px 10px;
+    font-size: 12px;
+    margin: 5px; 
+    cursor: pointer;
+    text-align: center;
+    border: 2px solid #555;
+    background-color: #333;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+}
+
+/* Cor específica do zerar */
+#btn-reset-history {
+    background-color: #e74c3c;
+}
+

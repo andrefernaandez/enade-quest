@@ -1,0 +1,200 @@
+/**
+* customized divs (containers) and framed objects (background and frame image).
+*/
+
+/* game div without background image*/
+.rpgui-container {
+  /* position style and default z */
+  position: fixed;
+  z-index: 10;
+
+  overflow: show;
+}
+
+/* game div with background image*/
+.framed {
+  /* border */
+  border-style: solid;
+  border-image-source: url("../assets/rpg/border-image.png");
+  border-image-repeat: repeat;
+  border-image-slice: 6 6 6 6;
+  border-image-width: 18px;
+  border-width: 15px;
+  padding: 12px;
+
+  /* internal border */
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+
+  /* background */
+  background: url("../assets/rpg/background-image.png") repeat repeat;
+  background-clip: padding-box;
+  background-origin: padding-box;
+  background-position: center;
+}
+
+/* game div with golden background image*/
+.framed-golden {
+  /* border */
+  border-style: solid;
+  border-image-source: url("../assets/rpg/border-image-golden.png");
+  border-image-repeat: repeat;
+  border-image-slice: 4 4 4 4;
+  border-image-width: 18px;
+  border-width: 15px;
+  padding: 12px;
+
+  /* internal border */
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+
+  /* background */
+  background: url("../assets/rpg/background-image-golden.png") repeat repeat;
+  background-clip: padding-box;
+  background-origin: padding-box;
+  background-position: center;
+}
+
+/* game div with golden2 background image*/
+.framed-golden-2 {
+  /* border */
+  border-style: solid;
+  border-image-source: url("../assets/rpg/border-image-golden2.png");
+  border-image-repeat: repeat;
+  border-image-slice: 8 8 8 8;
+  border-image-width: 18px;
+  border-width: 15px;
+  padding: 12px;
+
+  /* internal border */
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+
+  /* background */
+  background: url("../assets/rpg/background-image-golden2.png") repeat repeat;
+  background-clip: padding-box;
+  background-origin: padding-box;
+  background-position: center;
+}
+
+/* game div with soft grey background image*/
+.framed-grey {
+  position: relative;
+
+  /* border */
+  border-style: solid;
+  border-image-source: url("../assets/rpg/border-image-grey.png");
+  border-image-repeat: repeat;
+  border-image-slice: 3 3 3 3;
+  border-image-width: 7px;
+  border-width: 7px;
+  padding: 12px;
+
+  /* internal border */
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+
+  /* background */
+  background: url("../assets/rpg/background-image-grey.png") repeat repeat;
+  background-clip: padding-box;
+  background-origin: padding-box;
+  background-position: center;
+}
+
+/* ==========================================================================
+   REGRA DE ADAPTAÇÃO PARA COMPRESSÃO VERTICAL DO SEU PROJETO DE IHM
+   ========================================================================== */
+
+/* Puxa as cartas centrais e o quiz para cima para liberar espaço vertical */
+.card-versus__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -150px !important; 
+  z-index: 20;
+}
+
+/* Organiza o alinhamento das cartas em duelo */
+.versus-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: -10px;
+}
+
+/* Reduz o tamanho das cartas no meio do campo de batalha (Ganho de Espaço) */
+#player-field-card, 
+#computer-field-card {
+  height: 135px !important;
+  width: auto !important;
+  display: block;
+}
+
+/* Ajusta o tamanho do olho do milênio centralizado */
+#millenium-icon {
+  height: 60px !important;
+  width: auto !important;
+}
+
+/* Estilização da Janela Central do Quiz (Design Minimalista) */
+#quiz-container {
+  display: none;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.95);
+  padding: 12px;
+  border-radius: 6px;
+  border: 2px solid #e1b12c;
+  width: 460px;
+  margin-top: 5px;
+}
+
+/* Container branco com scroll interno para os prints longos do ENADE */
+.enade-image-wrapper {
+  background: white;
+  padding: 6px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+#question-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+#question-text {
+  color: #e1b12c;
+  font-size: 10px;
+  margin-bottom: 8px;
+  font-family: 'Press Start 2P', cursive;
+  line-height: 1.3;
+}
+
+/* Alinha os botões A, B, C, D, E lado a lado horizontalmente */
+#options-box {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+#options-box button {
+  padding: 8px 16px !important;
+  font-size: 10px !important;
+}
+
+.versus-bottom button#next-duel {
+  display: none;
+  margin-top: 15px;
+  padding: 10px 40px;
+  font-size: 11px;
+  width: auto;
+  min-width: 250px;
+}

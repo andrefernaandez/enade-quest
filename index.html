@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EnadeQuest</title>
+
+  <link rel="shortcut icon" href="./src/assets/favicon/Favicon.ico" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./src/styles/reset.css">
+
+  <link rel="stylesheet" href="./src/styles/buttons.css">
+  <link rel="stylesheet" href="./src/styles/containers_and_frames.css">
+
+  <link rel="stylesheet" href="./src/styles/main.css">
+</head>
+
+<body>
+  <audio id="bgm" loop>
+    <source src="./src/assets/audios/egyptian_duel.mp3" type="audio/mp3" />
+  </audio>
+  
+  <div class="bg-video">
+    <video class="video" autoplay loop muted>
+      <source src="./src/assets/video/yugi.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div id="start-menu">
+    <h1 class="menu-title">EnadeQuest</h1>
+    <div class="menu-options">
+      <button id="btn-play" class="rpgui-button">INICIAR SIMULADO</button>
+      <button id="btn-instructions" class="rpgui-button">COMO JOGAR</button>
+      <button id="btn-history" class="rpgui-button">HISTÓRICO</button>
+    </div>
+  </div>
+
+  <div id="modal-instructions" class="menu-modal">
+    <div class="modal-title">COMO JOGAR</div>
+    <div class="modal-content">
+      <p>Prepare-se para o exame oficial testando suas competências tecnológicas:</p>
+      <ul>
+        <li>Escolha uma área de TI na barra superior para invocar sua carta de conhecimento.</li>
+        <li>Enfrente a questão teórica do ENADE selecionando a alternativa correta.</li>
+        <li>Cada acerto consolida sua jornada acadêmica.</li>
+        <li>Cada erro consome 5 dos seus <strong>Pontos</strong>. O teste termina se seus pontos zerarem!</li>
+      </ul>
+    </div>
+    <button id="btn-close-instructions" class="rpgui-button" style="width:100%;">VOLTAR</button>
+  </div>
+
+  <div id="modal-history" class="menu-modal">
+    <div class="modal-title">HISTÓRICO DE RENDIMENTO</div>
+    <div id="history-content" class="modal-content"></div>
+    
+    <button id="btn-reset-history" class="btn-custom" style="background-color: #e74c3c;">ZERAR HISTÓRICO</button>
+    <button id="btn-close-history" class="btn-custom">VOLTAR</button>
+</div>
+
+  <div class="container game-hidden">
+    <div class="container__left framed-golden-2">
+      
+      <div class="score_box frame">
+        <img src="./src/assets/icons/audio.png" id="audio-player" class="inactive">
+        <span id="score_points">Pontos: 10 | Acertos: 0</span>
+      </div>
+      
+      <button id="btn-back-menu" class="rpgui-button full-width-menu">VOLTAR AO MENU</button>
+
+      <div class="menu_avatar">
+        <img id="card-image">
+      </div>
+      <div class="card_details frame">
+        <p id="card-name">Selecione uma</p>
+        <p id="card-type">Carta no Topo</p>
+      </div>
+    </div>
+    <div class="container__right">
+      <div class="card-box__container">
+        
+        <div class="card-box framed" id="computer-cards"></div>
+        
+        <div class="card-versus__container">
+          <div class="versus-top">
+            <div class="card-infield">
+              <img id="player-field-card">
+            </div>
+            <img id="millenium-icon" src="./src/assets/icons/millenium2.png">
+            <div class="card-infield">
+              <img id="computer-field-card">
+            </div>
+          </div>
+          <div class="versus-bottom">
+            
+            <div id="quiz-container">
+              <div class="enade-image-wrapper">
+                <img id="question-image">
+              </div>
+              <p id="question-text">Selecione a alternativa correta:</p>
+              <div id="options-box"></div>
+            </div>
+
+            <button id="next-duel" class="rpgui-button" onclick="resetDuel()">
+              PRÓXIMO DESAFIO
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  
+  <script src="./src/scripts/engine.js" defer></script>
+</body>
+
+</html>
